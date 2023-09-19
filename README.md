@@ -1,7 +1,6 @@
 # Tiktok_Device_Register
-Tiktok Device Generator
 
-#Tiktok Device Generator
+Features
 
 TTEncrypt
 
