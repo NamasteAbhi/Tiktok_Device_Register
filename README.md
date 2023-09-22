@@ -11,6 +11,6 @@ Get_Seed
 Ri_Report
 
 
-Dm Me For Api
+Buy Api Here
 
-https://t.me/NamasteHacker
+https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
