@@ -11,6 +11,6 @@ Get_Seed
 Ri_Report
 
 
-Buy Api Here
+Rapid Api
 
 https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
