@@ -1,3 +1,8 @@
+# Rapid_Api
+
+Url https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
+
+
 # Tiktok_Device_Register
 
 Features
@@ -21,6 +26,3 @@ Gorgon
 Khronos
 
 
-Rapid Api
-
-https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
