@@ -1,6 +1,6 @@
 # Rapid_Api
 
-Url https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
+Url > https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
 
 
 # Tiktok_Device_Register
