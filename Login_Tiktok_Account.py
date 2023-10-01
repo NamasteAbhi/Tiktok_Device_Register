@@ -71,13 +71,15 @@ Payload=urlencode({
     'multi_login': '1'
 })
 
+Cookies='; '.join([f'{key}={value}' for key, value in devices['Cookies'].items()])
 
 url = "https://tiktok-device-registeration.p.rapidapi.com/Get_Sign/"
 
 data = {
     "Params": Params,
     "Payload": Payload,
-    "Sig_Token": Sig_Token
+    "Sig_Token": Sig_Token,
+    "Cookies":Cookies
 }
 headers = {
     "content-type": "application/json",
