@@ -72,7 +72,9 @@ data = {
     "Params": Params,
     "Payload": Payload,
     "Sig_Token": Sig_Token,
-    "Cookies":Cookies
+    "Cookies":Cookies,
+    "bd_lanusk": "#vqj9gCzgfSa0PaRvV/oiwGJ5lAO9VjDgLYBWp533J1ALNvAsld3tDLOZb5kTXd7Q9OM7ZhobWkDWyQAn"
+
 }
 headers = {
     "content-type": "application/json",
