@@ -7,7 +7,7 @@ import requests
 Rapid_Key='' #Enter Your Rapid Key
 
 
-devices={"is_activated": "success", "Device_Info": {"iid": "7280628010981984006", "device_id": "7280626767643543045", "passport-sdk-version": "19", "ac": "wifi", "channel": "googleplay", "aid": "1233", "app_name": "musical_ly", "version_code": "310303", "version_name": "31.3.3", "device_platform": "android", "os": "android", "ab_version": "31.3.3", "ssmix": "a", "device_type": "lg", "device_brand": "LG_RDJZ1", "language": "en", "os_api": "24", "os_version": "7.0", "openudid": "1cfeedc94f096fbe", "manifest_version_code": "2023103030", "resolution": "720*1280", "dpi": "240", "update_version_code": "2023103030", "app_type": "normal", "sys_region": "PA", "mcc_mnc": "71420", "timezone_name": "America/Panama", "timezone_offset": -18000, "build_number": "31.3.3", "region": "PA", "carrier_region": "PA", "uoo": "0", "app_language": "en", "locale": "en", "op_region": "PA", "ac2": "wifi", "host_abi": "armeabi-v7a", "cdid": "3384ccd4-d3f7-481d-a6d5-554bec1cee41", "support_webview": "1", "okhttp_version": "4.2.152.10-tiktok", "use_store_region_cookie": "1"}, "Cookies": {"install_id": "7280628010981984006", "store-country-code": "pa", "store-country-code-src": "did", "store-idc": "maliva", "ttreq": "1$38169af7102f365c0143503fcbcb2d158a4f95e7"}, "secDeviceIdToken": "ApgtHUP1J5Zr81i5BHZSrZG5T", "Seed_Algorithm": 10, "Seed_Token": "MDGvHZXRq3oCLDwxhj9pwYLinbcvHXBwA2J48PdcSR2BLEmDRjBsQVZ6E0j4fE3r3ucCJwXFwRec80KCHK38V1SXkjuUSrRSfcR+mENL8Xtr+MUJDLPkpX5EN36K7tDOZfI=", "Ri_Report": 'true'}
+devices={'is_activated': 'success', 'Device_Info': {'iid': '7331503474641291051', 'device_id': '7331503144294532650', 'passport-sdk-version': '19', 'device_type': 'XIAOMI_YOTH7', 'device_brand': 'xiaomi', 'os_api': '25', 'os_version': '7.1.2', 'openudid': 'f01a3daff6c0e557', 'sys_region': 'US', 'mcc_mnc': '3110', 'timezone_name': 'America/New_York', 'timezone_offset': '-18000', 'region': 'US', 'carrier_region': 'US', 'app_language': 'en', 'op_region': 'US', 'cdid': '58aa63a5-84e9-46c3-a093-8e11293e3ec2', 'support_webview': '1', 'user-agent': 'com.zhiliaoapp.musically/2023303020 (Linux; U; Android 7.1.2; en_US; XIAOMI_YOTH7; Build/N2G48H;tt-ok/3.12.13.4-tiktok)', 'Mssdk_Endpoint': 'mssdk16-platform-useast5.us.tiktokv.com', 'ac': 'wifi', 'channel': 'googleplay', 'aid': '1233', 'app_name': 'musical_ly', 'version_code': '330302', 'version_name': '33.3.2', 'device_platform': 'android', 'os': 'android', 'ab_version': '33.3.2', 'ssmix': 'a', 'language': 'en', 'manifest_version_code': '2023303020', 'resolution': '1080*1920', 'dpi': '320', 'update_version_code': '2023303020', 'app_type': 'normal', 'build_number': '33.3.2', 'uoo': '0', 'locale': 'en', 'ac2': 'wifi', 'host_abi': 'armeabi-v7a', 'okhttp_version': '4.2.137.48-tiktok', 'use_store_region_cookie': '1', 'google_aid': '918f2eb7-55ee-49a5-9e6f-50a666d18b72', 'clientuuid': '9eb1822c-0c30-488b-810f-d9897f6c172b', 'req_id': '3cad660c-29ae-481b-b451-db60ec5ab106'}, 'Cookies': {'store-idc': 'useast5', 'store-country-code': 'us', 'store-country-code-src': 'did', 'install_id': '7331503474641291051', 'ttreq': '1$7ba79f7160e931963a0a22a9bdda1eec7940002b'}, 'secDeviceIdToken': 'AXC19EKtvhrMvWpXKXIZHP9Nh', 'Seed_Algorithm': 12, 'Seed_Token': 'MDGiHJ/SrHIOIT8xgzw0k4PgnOd6GCVwVGco9vYPTEvRLhmLEmRpHQJ8R0n4f03r3+4BLwnOxRaT80KCSfDwAgPCmzeUSecBLcR+mk9F8XtqrJUJCunnonAUNSnd6oSeZfI=', 'Ri_Report': True}
 
 Params=urlencode({
             "passport-sdk-version": "19",
@@ -56,6 +56,8 @@ Params=urlencode({
         }).replace('%2A', '*')
 
 Sig_Token=devices['secDeviceIdToken']
+Seed_Token=devices['Seed_Token']
+Seed_Algo=devices['Seed_Algorithm']
 
 Payload=urlencode({
     'username': '707660773430333230333271706e6f33303134363330',
@@ -68,14 +70,21 @@ Payload=urlencode({
 Cookies='; '.join([f'{key}={value}' for key, value in devices['Cookies'].items()])
 url = "https://tiktok-device-registeration.p.rapidapi.com/Get_Sign/"
 
-data = {
+
+
+
+data={
     "Params": Params,
     "Payload": Payload,
     "Sig_Token": Sig_Token,
     "Cookies":Cookies,
-    "bd_lanusk": "#vqj9gCzgfSa0PaRvV/oiwGJ5lAO9VjDgLYBWp533J1ALNvAsld3tDLOZb5kTXd7Q9OM7ZhobWkDWyQAn"
-
+    "Bd_Lanusk": "", #This data Comes in response headers after login tiktok account like this  #vqj9gCzgfSa0PaRvV/oiwGJ5lAO9VjDgLYBWp533J1ALNvAsld3tDLOZb5kTXd7Q9OM7ZhobWkDWyQAn
+    "Bd_Kmsv": "", # Same Comes in response headers after login like this 0 int value
+    "Seed_Token": Seed_Token,
+    "Seed_Algorithm": Seed_Algo
 }
+
+
 headers = {
     "content-type": "application/json",
     "Content-Type": "application/json",
