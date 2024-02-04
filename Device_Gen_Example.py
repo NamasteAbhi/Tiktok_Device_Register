@@ -10,10 +10,10 @@ querystring = {
   "Proxy":"username:password@host:port",
   "Country":"us",
  'Openudid': os.urandom(8).hex(), #Use Your Same Old Device Data For Reactivate Your Old Devices
- 'req_id': str(uuid.uuid4()),
- 'cdid':  str(uuid.uuid4()),
- 'clientuuid': str(uuid.uuid4()),
- 'google_aid':  str(uuid.uuid4()),
+ 'Req_id': str(uuid.uuid4()),
+ 'Cdid':  str(uuid.uuid4()),
+ 'Clientuuid': str(uuid.uuid4()),
+ 'Google_aid':  str(uuid.uuid4()),
 }
 
 headers = {
