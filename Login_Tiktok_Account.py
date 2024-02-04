@@ -1,3 +1,4 @@
+import random
 from urllib.parse import urlencode
 import httpx
 import hashlib
@@ -13,7 +14,9 @@ ctx.set_alpn_protocols(["h2", "http/2.0"])
 Rapid_Key='' #Enter Your Rapid Key
 
 
-devices={"is_activated": "success", "Device_Info": {"iid": "7280628010981984006", "device_id": "7280626767643543045", "passport-sdk-version": "19", "ac": "wifi", "channel": "googleplay", "aid": "1233", "app_name": "musical_ly", "version_code": "310303", "version_name": "31.3.3", "device_platform": "android", "os": "android", "ab_version": "31.3.3", "ssmix": "a", "device_type": "lg", "device_brand": "LG_RDJZ1", "language": "en", "os_api": "24", "os_version": "7.0", "openudid": "1cfeedc94f096fbe", "manifest_version_code": "2023103030", "resolution": "720*1280", "dpi": "240", "update_version_code": "2023103030", "app_type": "normal", "sys_region": "PA", "mcc_mnc": "71420", "timezone_name": "America/Panama", "timezone_offset": -18000, "build_number": "31.3.3", "region": "PA", "carrier_region": "PA", "uoo": "0", "app_language": "en", "locale": "en", "op_region": "PA", "ac2": "wifi", "host_abi": "armeabi-v7a", "cdid": "3384ccd4-d3f7-481d-a6d5-554bec1cee41", "support_webview": "1", "okhttp_version": "4.2.152.10-tiktok", "use_store_region_cookie": "1"}, "Cookies": {"install_id": "7280628010981984006", "store-country-code": "pa", "store-country-code-src": "did", "store-idc": "maliva", "ttreq": "1$38169af7102f365c0143503fcbcb2d158a4f95e7"}, "secDeviceIdToken": "ApgtHUP1J5Zr81i5BHZSrZG5T", "Seed_Algorithm": 10, "Seed_Token": "MDGvHZXRq3oCLDwxhj9pwYLinbcvHXBwA2J48PdcSR2BLEmDRjBsQVZ6E0j4fE3r3ucCJwXFwRec80KCHK38V1SXkjuUSrRSfcR+mENL8Xtr+MUJDLPkpX5EN36K7tDOZfI=", "Ri_Report": 'true'}
+devices={"is_activated": "success", "Device_Info": {"iid": "7331530235232061230", "device_id": "7331529932814206507", "passport-sdk-version": "19", "device_type": "HONOR_VUM2U", "device_brand": "honor", "os_api": "27", "os_version": "8.1.0", "openudid": "d3f138db14bb0726", "sys_region": "US", "mcc_mnc": "310540", "timezone_name": "America/New_York", "timezone_offset": "-18000", "region": "US", "carrier_region": "US", "app_language": "en", "op_region": "US", "cdid": "73467f85-ca58-4b97-be27-1409326f25fb", "support_webview": "1", "user-agent": "com.zhiliaoapp.musically/2023303020 (Linux; U; Android 8.1.0; en_US; HONOR_VUM2U; Build/N2G48H;tt-ok/3.12.13.4-tiktok)", "Mssdk_Endpoint": "mssdk16-platform-useast5.us.tiktokv.com", "ac": "wifi", "channel": "googleplay", "aid": "1233", "app_name": "musical_ly", "version_code": "330302", "version_name": "33.3.2", "device_platform": "android", "os": "android", "ab_version": "33.3.2", "ssmix": "a", "language": "en", "manifest_version_code": "2023303020", "resolution": "1080*1920", "dpi": "320", "update_version_code": "2023303020", "app_type": "normal", "build_number": "33.3.2", "uoo": "0", "locale": "en", "ac2": "wifi", "host_abi": "armeabi-v7a", "okhttp_version": "4.2.137.48-tiktok", "use_store_region_cookie": "1", "google_aid": "8ed9ae2d-d941-480f-9727-dd30fc71a29b", "clientuuid": "c4146720-ecb5-4997-b36e-1037aa1bdce0", "req_id": "7e59e64f-b714-4120-bf26-9349b91da23a"}, "Cookies": {"store-idc": "useast5", "store-country-code": "us", "store-country-code-src": "did", "install_id": "7331530235232061230", "ttreq": "1$18237b6d6da904100cfe29d650d54aafb2ccb925"}, "secDeviceIdToken": "Au6vK_bZGe7k-beNTkYFhak3T", "Seed_Algorithm": 16, "Seed_Token": "MDGkHp/TrnIFIzp1yTA2lobgx70pFCcgBDcupPtdTR2ELB6GR2wxQVV0QR29NQmm2ekHIQDGxhucuA7OUPahUgCUwzOKVrpRfYxnmkVF6DQx+MNHFr/hri0VOC3c6tPNX/E=", "Ri_Report": True}
+
+Endpoint='api16-normal-useast5.us.tiktokv.com'  #Different Endpoints For Different Country
 
 Params=urlencode({
             "passport-sdk-version": "19",
@@ -36,8 +39,8 @@ Params=urlencode({
             "os_version": devices['Device_Info']["os_version"],
             "openudid": devices['Device_Info']["openudid"],
             "manifest_version_code": devices['Device_Info']["manifest_version_code"],
-            "resolution": "720*1280",
-            "dpi": "240",
+            "resolution": devices['Device_Info']["resolution"],
+            "dpi": devices['Device_Info']["dpi"],
             "update_version_code": devices['Device_Info']["update_version_code"],
             "_rticket": str(round(time.time() * 1000)),
             "app_type": "normal",
@@ -54,7 +57,7 @@ Params=urlencode({
             "locale": devices['Device_Info']["locale"],
             "op_region":  devices['Device_Info']["op_region"],
             "ac2": "wifi",
-            "host_abi": "armeabi-v7a",
+            "host_abi":devices['Device_Info']["host_abi"],
             "cdid":devices['Device_Info']["cdid"],
             "support_webview": "1",
             "okhttp_version": devices['Device_Info']["okhttp_version"],
@@ -62,24 +65,30 @@ Params=urlencode({
         }).replace('%2A', '*')
 
 Sig_Token=devices['secDeviceIdToken']
+Seed_Token=devices['Seed_Token']
+Seed_Algo=devices['Seed_Algorithm']
 
-Payload=urlencode({
-    'username': '707660773430333230333271706e6f33303134363330',
-    'password': '3c67313033717c706e3233323330624424',
+Payload=urlencode( {
+    'password': '7f6163737f637363736163736163677f67',
     'account_sdk_source': 'app',
+    'username': '7f6163737f736163737f616373636173',
     'mix_mode': '1',
-    'multi_login': '1'
+    'multi_login': '1',
 })
 
 Cookies='; '.join([f'{key}={value}' for key, value in devices['Cookies'].items()])
 
 url = "https://tiktok-device-registeration.p.rapidapi.com/Get_Sign/"
 
-data = {
+data={
     "Params": Params,
     "Payload": Payload,
     "Sig_Token": Sig_Token,
-    "Cookies":Cookies
+    "Cookies":Cookies,
+    "Bd_Lanusk": "", #This data Comes in response headers after login tiktok account like this  #vqj9gCzgfSa0PaRvV/oiwGJ5lAO9VjDgLYBWp533J1ALNvAsld3tDLOZb5kTXd7Q9OM7ZhobWkDWyQAn
+    "Bd_Kmsv": "", # Same Comes in response headers after login like this 0 int value
+    "Seed_Token": Seed_Token,
+    "Seed_Algorithm": Seed_Algo
 }
 headers = {
     "content-type": "application/json",
@@ -89,29 +98,31 @@ headers = {
 }
 
 response = httpx.post(url, json=data, headers=headers)
+print(response.json())
 
-headers_1=response.json()| {
-    'Host':'api16-normal-c-useast1a.tiktokv.com',
-    'X-Ss-Stub': hashlib.md5(Payload.encode()).hexdigest().upper(),
-    'Accept-Encoding': 'gzip, deflate',
-    'Sdk-Version': '2',
-    "X-Ss-Req-Ticket": str(int(response.json()['X-Khronos'])*1000),
-    'Passport-Sdk-Version': '19',
-    'X-Tt-Dm-Status': 'login=0;ct=0;rt=7',
-    'X-Tt-Bypass-Dp': '1',
-    'X-Vc-Bdturing-Sdk-Version': '2.3.2.i18n',
-    'User-Agent': f'com.zhiliaoapp.musically/{devices["Device_Info"]["update_version_code"]}0(Linux; U; Android {devices["Device_Info"]["os_version"]}; en; {devices["Device_Info"]["device_type"]}; Build/PI;tt-ok/3.12.13.1)',
-    'X-Ladon': response.json()['X-Ladon'],
-    'X-Gorgon':response.json()['X-Gorgon'],
-    'X-Khronos':response.json()['X-Khronos'],
-    'X-Argus':response.json()['X-Argus'],
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+headers_1= {
+    'connection': 'Keep-Alive',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'host': Endpoint,
+    'passport-sdk-version': '19',
+    'pns_event_id': str(random.randint(100,250)),
+    'sdk-version': '2',
+    'user-agent': devices['Device_Info']['user-agent'],
+    'x-argus': response.json()['X-Argus'],
+    'x-gorgon':response.json()['X-Gorgon'],
+    'x-khronos': response.json()['X-Khronos'],
+    'x-ladon':  response.json()['X-Ladon'],
+    'x-ss-req-ticket': str(int(response.json()['X-Khronos'])*1000),
+    'x-ss-stub': hashlib.md5(Payload.encode()).hexdigest().upper(),
+    'x-tt-bypass-dp': '1',
+    'x-tt-dm-status': 'login=0;ct=0;rt=7',
+    'x-vc-bdturing-sdk-version': '2.3.5.i18n',
 }
 
 
-re=httpx.post(f'https://api16-normal-c-useast1a.tiktokv.com/passport/user/login/?{Params}',headers=headers_1,data=Payload,cookies=devices['Cookies'],verify=ctx).text
-print(re)
 
+re=httpx.post(f'https://{Endpoint}/passport/user/login/?{Params}',headers=headers_1,data=Payload,cookies=devices['Cookies'],verify=ctx).text
+print(re)
 
 
 
