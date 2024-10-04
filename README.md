@@ -1,3 +1,6 @@
+
+## API IS NOW CLOSED
+
 # Rapid_Api
 
 Url > https://rapidapi.com/namasteventures-namasteventures-default/api/tiktok-device-registeration
