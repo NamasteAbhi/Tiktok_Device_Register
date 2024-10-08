@@ -1,97 +1,44 @@
-import time
-from urllib.parse import urlencode
 import requests
 
+Rapid_Key = ''  # Enter Your Rapid Key
 
+url = "https://bytedancesolutions.p.rapidapi.com/getsign"
 
-Rapid_Key='' #Enter Your Rapid Key
-
-
-devices={'is_activated': 'success', 'Device_Info': {'iid': '7331503474641291051', 'device_id': '7331503144294532650', 'passport-sdk-version': '19', 'device_type': 'XIAOMI_YOTH7', 'device_brand': 'xiaomi', 'os_api': '25', 'os_version': '7.1.2', 'openudid': 'f01a3daff6c0e557', 'sys_region': 'US', 'mcc_mnc': '3110', 'timezone_name': 'America/New_York', 'timezone_offset': '-18000', 'region': 'US', 'carrier_region': 'US', 'app_language': 'en', 'op_region': 'US', 'cdid': '58aa63a5-84e9-46c3-a093-8e11293e3ec2', 'support_webview': '1', 'user-agent': 'com.zhiliaoapp.musically/2023303020 (Linux; U; Android 7.1.2; en_US; XIAOMI_YOTH7; Build/N2G48H;tt-ok/3.12.13.4-tiktok)', 'Mssdk_Endpoint': 'mssdk16-platform-useast5.us.tiktokv.com', 'ac': 'wifi', 'channel': 'googleplay', 'aid': '1233', 'app_name': 'musical_ly', 'version_code': '330302', 'version_name': '33.3.2', 'device_platform': 'android', 'os': 'android', 'ab_version': '33.3.2', 'ssmix': 'a', 'language': 'en', 'manifest_version_code': '2023303020', 'resolution': '1080*1920', 'dpi': '320', 'update_version_code': '2023303020', 'app_type': 'normal', 'build_number': '33.3.2', 'uoo': '0', 'locale': 'en', 'ac2': 'wifi', 'host_abi': 'armeabi-v7a', 'okhttp_version': '4.2.137.48-tiktok', 'use_store_region_cookie': '1', 'google_aid': '918f2eb7-55ee-49a5-9e6f-50a666d18b72', 'clientuuid': '9eb1822c-0c30-488b-810f-d9897f6c172b', 'req_id': '3cad660c-29ae-481b-b451-db60ec5ab106'}, 'Cookies': {'store-idc': 'useast5', 'store-country-code': 'us', 'store-country-code-src': 'did', 'install_id': '7331503474641291051', 'ttreq': '1$7ba79f7160e931963a0a22a9bdda1eec7940002b'}, 'secDeviceIdToken': 'AXC19EKtvhrMvWpXKXIZHP9Nh', 'Seed_Algorithm': 12, 'Seed_Token': 'MDGiHJ/SrHIOIT8xgzw0k4PgnOd6GCVwVGco9vYPTEvRLhmLEmRpHQJ8R0n4f03r3+4BLwnOxRaT80KCSfDwAgPCmzeUSecBLcR+mk9F8XtqrJUJCunnonAUNSnd6oSeZfI=', 'Ri_Report': True}
-
-Params=urlencode({
-            "passport-sdk-version": "19",
-            "iid": devices['Device_Info']["iid"],
-            "device_id": devices['Device_Info']["device_id"],
-            "ac": "wifi",
-            "channel": devices['Device_Info']["channel"],
-            "aid": devices['Device_Info']["aid"],
-            "app_name": "musical_ly",
-            "version_code": devices['Device_Info']["version_code"],
-            "version_name": devices['Device_Info']["version_name"],
-            "device_platform": "android",
-            "os": "android",
-            "ab_version": devices['Device_Info']["ab_version"],
-            "ssmix": "a",
-            "device_type": devices['Device_Info']["device_type"],
-            "device_brand": devices['Device_Info']["device_brand"],
-            "language":devices['Device_Info']["language"],
-            "os_api": devices['Device_Info']["os_api"],
-            "os_version": devices['Device_Info']["os_version"],
-            "openudid": devices['Device_Info']["openudid"],
-            "manifest_version_code": devices['Device_Info']["manifest_version_code"],
-            "resolution": "720*1280",
-            "dpi": "240",
-            "update_version_code": devices['Device_Info']["update_version_code"],
-            "_rticket": str(round(time.time() * 1000)),
-            "app_type": "normal",
-            "sys_region":  devices['Device_Info']["sys_region"],
-            "mcc_mnc": devices['Device_Info']["mcc_mnc"],
-            "timezone_name": devices['Device_Info']["timezone_name"],
-            "ts": str(round(time.time())),
-            "timezone_offset": devices['Device_Info']["timezone_offset"],
-            "build_number":devices['Device_Info']["build_number"],
-            "region":  devices['Device_Info']["region"],
-            "carrier_region": devices['Device_Info']["carrier_region"],
-            "uoo": "0",
-            "app_language":  devices['Device_Info']["app_language"],
-            "locale": devices['Device_Info']["locale"],
-            "op_region":  devices['Device_Info']["op_region"],
-            "ac2": "wifi",
-            "host_abi": "armeabi-v7a",
-            "cdid":devices['Device_Info']["cdid"],
-            "support_webview": "1",
-            "okhttp_version": devices['Device_Info']["okhttp_version"],
-            "use_store_region_cookie": "1"
-        }).replace('%2A', '*')
-
-Sig_Token=devices['secDeviceIdToken']
-Seed_Token=devices['Seed_Token']
-Seed_Algo=devices['Seed_Algorithm']
-
-Payload=urlencode({
-    'username': '707660773430333230333271706e6f33303134363330',
-    'password': '3c67313033717c706e3233323330624424',
-    'account_sdk_source': 'app',
-    'mix_mode': '1',
-    'multi_login': '1'
-})
-
-Cookies='; '.join([f'{key}={value}' for key, value in devices['Cookies'].items()])
-url = "https://tiktok-device-registeration.p.rapidapi.com/Get_Sign/"
-
-
-
-
-data={
-    "Params": Params,
-    "Payload": Payload,
-    "Sig_Token": Sig_Token,
-    "Cookies":Cookies,
-    "Bd_Lanusk": "", #This data Comes in response headers after login tiktok account like this  #vqj9gCzgfSa0PaRvV/oiwGJ5lAO9VjDgLYBWp533J1ALNvAsld3tDLOZb5kTXd7Q9OM7ZhobWkDWyQAn
-    "Bd_Kmsv": "", # Same Comes in response headers after login like this 0 int value
-    "Seed_Token": Seed_Token,
-    "Seed_Algorithm": Seed_Algo
+payload = {
+    "querystring": "user_id=7304926335365104645&sec_user_id=MS4wLjABAAAAmJxZE4VCnvOSKvIyGgvyMAvtmB_hxmsKjdgBGmzXSPaXx87UGJAN1Q1Vbr3eRHE9&type=1&channel_id=0&from=13&from_pre=13&item_id=7402065520150859013&enter_from=homepage_hot&action_time=1728214227154&is_network_available=true&iid=7422269625251202822&device_id=7413249597273605675&ac=wifi&channel=googleplay&aid=1233&app_name=musical_ly&version_code=360704&version_name=36.7.4&device_platform=android&os=android&ab_version=36.7.4&ssmix=a&device_type=RMX2117&device_brand=realme&language=en&os_api=30&os_version=11&openudid=e1d7059e31fa2e99&manifest_version_code=2023607040&resolution=1080*2158&dpi=480&update_version_code=2023607040&_rticket=1728214227168&is_pad=0&app_type=normal&sys_region=US&last_install_time=1728213879&timezone_name=Asia%2FKolkata&app_language=en&ac2=wifi5g&uoo=0&op_region=US&timezone_offset=19800&build_number=36.7.4&host_abi=arm64-v8a&locale=en&region=US&ts=1728214224&cdid=da8a97a5-143b-4402-9282-4e58c38ffe6b",
+    "x_ss_stub": "00000000000000000000000000000000",
+    "sessionid": "00000000000000000000000000000000",
+    "Sig_Token": "AKLtyIKTPC2UZSe0rqTNO7kfQ",
+    "Seed_Token": "MDGiGJjQqXEPITp9yW1mkoG0nLN7SHV3WDdz8PhdSEyDKknTGmxqFwcqQka2NQWm2ekFLgLHwRqSvA7OUKCkUAaUkDeJVrAOKoxnmkYXvzQx/cQUFunprnpHZS2N4N6WBvE=",
+    "Seed_Algo": 8,
+    "Bd_Kmsv": "0",
+    "Bd_Lanusk": "#0a2EKUVGM6QN/NUrrwUdQjcwpyAOrmzzITN5QPfQQZpX4T07bbhGuw2Yj1xNQVVjm0Usd10EOQ5jPMz+",
+    "msAppID": "1233",
+    "deviceID": "7413249597273605675",
+    "licenseID": "2142840551",
+    "appVersion": "36.7.4",
+    "sdkVersionStr": "v05.00.07-ov-android",
+    "sdkVersion": 83887904,
+    "appVersionConstant": 67138560,
+    "phoneInfo": "RMX2117",
+    "channel": "googleplay"
 }
-
-
 headers = {
-    "content-type": "application/json",
-    "Content-Type": "application/json",
-    "X-RapidAPI-Key": Rapid_Key,
-    "X-RapidAPI-Host": "tiktok-device-registeration.p.rapidapi.com"
+    "x-rapidapi-key": Rapid_Key,
+    "x-rapidapi-host": "bytedancesolutions.p.rapidapi.com",
+    "Content-Type": "application/json"
 }
 
-response = requests.post(url, json=data, headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 
 print(response.json())
+
+# Example Response
+"""
+{
+  "X-Argus": "nIBDGeOKLfl/yP6GgTk8HfgDE3EUDaqLVDKgADWY8/oxT/ugNjtubQ1cpD1tZT5suKjsf6Dz1AV1BWxm9rtQomYKuQz7rPiluVe8e/KedfBo9nUKoRzvyrC5aSezXx/+dHD8yYlv823WyJNGJPp1uy1J1p8qbhz1s4IEMplkg5lfT0BvkPTuaBBnxNqL7uDZiFUwL3zeWigbosG0bHosLg101cyGUDXXSCEcDIeXdB+1bKnpd8RZbw+StCOEOaaMErkJE8e7xQ1kpVJYWu5aw2tHCRhibpGX057l4yYDoIhRHeg9625id0WrLf6UG73KTP6tRK72hG00kp3c/pVwvcQjtAaXNREc5iyFAXJsI8UVwrcacJ9qXi5QATnwHbozG6xwoavMSP7FYzg9F/EuZOEeMeDWigR7Mrar2OXZgNBDxdTK99pLjfKQZjMaPHH2BTLwEsuT6SReVIzzeUaGlgjGzOe+yLy8GJbkqTfpAIZ0xMp/pCbuC7LV04UzzFdsY0CSp84AS+V6geRVPamUEfFgXMn6AjtK5xM1XzdVDKxTkMKweo4T07C2G7Jd6/oFa7OE4slAERmGxXZdC+hTIOMqQbxCjFOI/uOPAW85MkSGP+atpOnfI9scpT9LCU1CacM=",
+  "X-Gorgon": "8404637d0000bddb453792a6df2af1208d7bdcbc84253d0c992a",
+  "X-Khronos": "1728420715",
+  "X-Ladon": "nF5UkreYpHI8mLBR1Do9YXz05cZFbmD1zQbMUGBGqr7pUzdO"
+}
+"""
