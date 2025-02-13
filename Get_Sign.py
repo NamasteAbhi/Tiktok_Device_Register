@@ -21,6 +21,7 @@ payload = {
     "sdkVersion": 83887904,
     "appVersionConstant": 67138560,
     "phoneInfo": "RMX2117",
+    "os_version":13,
     "channel": "googleplay"
 }
 headers = {
