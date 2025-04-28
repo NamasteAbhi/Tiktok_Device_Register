@@ -3,14 +3,11 @@
 
 Url > https://rapidapi.com/NamasteProgrammer/api/bytedancesolutions
 
-# Get_Tiktok_Signature
+# Tiktok Web Calcualtion
 
-Argus
-
-Ladon
-
-Gorgon
-
-Khronos
-
+X-Bogus
+X-Gnarly
+X-Mssdk_Info
+_Signature
+StrData
 
