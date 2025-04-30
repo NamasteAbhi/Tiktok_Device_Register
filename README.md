@@ -1,17 +1,16 @@
+# ByteDance Solutions — TikTok Web Signature API  
+[![View on RapidAPI](https://img.shields.io/badge/RapidAPI-View-blue?logo=rapidapi)](https://rapidapi.com/NamasteProgrammer/api/bytedancesolutions)
 
-# Rapid_Api
+Generate these values—**`X-Bogus`**, **`X-Gnarly`**, **`X-Mssdk-Info`**, **`_signature`**, and **`strData`**—using our API. Check **`example.py`** for a quick demo.
 
-Url > https://rapidapi.com/NamasteProgrammer/api/bytedancesolutions
+---
 
-# Tiktok Web Calcualtion
+## ✨ Fields Returned
 
-X-Bogus
+- **`X-Bogus`**  
+- **`X-Gnarly`**  
+- **`X-Mssdk-Info`**  
+- **`_signature`**  
+- **`strData`**
 
-X-Gnarly
-
-X-Mssdk_Info
-
-_Signature
-
-StrData
-
+---
