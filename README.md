@@ -12,5 +12,6 @@ Generate these values—**`X-Bogus`**, **`X-Gnarly`**, **`X-Mssdk-Info`**, **`_s
 - **`X-Mssdk-Info`**  
 - **`_signature`**  
 - **`strData`**
+- **`edata`**
 
 ---
